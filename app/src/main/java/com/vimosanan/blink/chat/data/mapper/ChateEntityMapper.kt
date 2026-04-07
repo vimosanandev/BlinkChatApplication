@@ -8,7 +8,7 @@ import com.vimosanan.blink.chat.data.remote.dto.MessageDto
 import com.vimosanan.blink.chat.domain.model.Conversation
 import com.vimosanan.blink.chat.domain.model.Message
 
-fun ConversationWithMessages.toDomain(): Conversation {
+fun ConversationWithMessages.toConversation(): Conversation {
     return Conversation(
         id = conversation.id,
         name = conversation.name,
