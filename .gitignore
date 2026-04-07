@@ -1,0 +1,84 @@
+# Built application files
+*.apk
+*.aar
+*.ap_
+*.aab
+
+# Files for the ART/Dalvik VM
+*.dex
+
+# Gradle files
+.gradle/
+build/
+**/build/
+
+# Local configuration file (contains SDK path)
+local.properties
+
+# Gradle wrapper
+!gradle/wrapper/gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.properties
+
+# IntelliJ / Android Studio
+*.iml
+.idea/
+*.iws
+*.ipr
+out/
+.idea/caches/
+.idea/libraries/
+.idea/modules.xml
+.idea/workspace.xml
+.idea/navEditor.xml
+.idea/assetWizardSettings.xml
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+
+# External native build
+.cxx/
+*.so
+obj/
+
+# Keystore files (NEVER commit these)
+*.jks
+*.keystore
+*.p12
+
+# Google Services
+google-services.json
+
+# Firebase
+.firebase/
+firebase.json
+.firebaserc
+
+# Signing config
+keystore.properties
+signing.properties
+release.properties
+
+# NDK
+*.o
+*.a
+
+# CMake
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+
+# Kotlin build artifacts
+kotlin-build/
+
+# Lint
+lint/intermediates/
+lint/generated/
+lint/outputs/
+lint/tmp/
+
+# Test artifacts
+.kotlin/
+test-results/
