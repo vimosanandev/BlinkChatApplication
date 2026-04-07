@@ -1,7 +1,6 @@
 package com.vimosanan.blink.chat.data.repository
 
 import com.vimosanan.blink.chat.data.local.datasource.ChatLocalDataSource
-import com.vimosanan.blink.chat.data.local.datasource.ChatLocalDataSourceImpl
 import com.vimosanan.blink.chat.data.mapper.toConversation
 import com.vimosanan.blink.chat.data.mapper.toEntity
 import com.vimosanan.blink.chat.data.remote.datasource.ChatRemoteDataSource
@@ -17,15 +16,15 @@ class ChatRepositoryImpl @Inject constructor(
     private val chatRemoteDataSource: ChatRemoteDataSource
 ) :
     ChatRepository {
-    override fun observerConversations(): Flow<List<Conversation>> =
-        chatLocalDataSource.observerConversations()
+    override fun observeConversations(): Flow<List<Conversation>> =
+        chatLocalDataSource.observeConversations()
             .map { conversationWithMessagesList ->
                 conversationWithMessagesList.map { conversationWithMessages ->
                     conversationWithMessages.toConversation()
                 }
             }
 
-    override fun observerConversationById(conversationId: String): Flow<Conversation?> =
+    override fun observeConversationById(conversationId: String): Flow<Conversation?> =
         chatLocalDataSource.observeConversationById(conversationId)
             .map { conversationWithMessages ->
                 conversationWithMessages?.toConversation()

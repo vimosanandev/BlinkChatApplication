@@ -5,7 +5,7 @@ import com.vimosanan.blink.chat.domain.model.Conversation
 import kotlinx.coroutines.flow.Flow
 
 interface ChatRepository {
-    fun observerConversations(): Flow<List<Conversation>>
-    fun observerConversationById(conversationId: String): Flow<Conversation?>
+    fun observeConversations(): Flow<List<Conversation>>
+    fun observeConversationById(conversationId: String): Flow<Conversation?>
     suspend fun syncConversations(): OperationResult
 }

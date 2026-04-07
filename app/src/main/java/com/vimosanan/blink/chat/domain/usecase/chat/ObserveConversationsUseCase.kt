@@ -11,5 +11,5 @@ class ObserveConversationsUseCase @Inject constructor(
     private val repository: ChatRepository,
     @IODispatcher dispatcher: CoroutineDispatcher
 ) : FlowUseCase<Unit, List<Conversation>>(dispatcher) {
-    override fun execute(params: Unit) = repository.observerConversations()
+    override fun execute(params: Unit) = repository.observeConversations()
 }

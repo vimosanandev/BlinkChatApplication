@@ -13,11 +13,11 @@ class ChatLocalDataSourceImpl @Inject constructor(
     private val messageDao: MessageDao
 ) :
     ChatLocalDataSource {
-    override fun observerConversations(): Flow<List<ConversationWithMessages>> =
-        conversationDao.observerConversationsWithMessages()
+    override fun observeConversations(): Flow<List<ConversationWithMessages>> =
+        conversationDao.observeConversationsWithMessages()
 
     override fun observeConversationById(conversationId: String): Flow<ConversationWithMessages?> =
-        conversationDao.observerConversationWithMessages(conversationId)
+        conversationDao.observeConversationWithMessages(conversationId)
 
     override suspend fun upsertConversations(conversations: List<ConversationEntity>) =
         conversationDao.upsertConversations(conversations)
