@@ -1,4 +1,4 @@
-package com.vimosanan.blink.chat.data.local.datasource
+package com.vimosanan.blink.chat.data.remote.datasource
 
 class ChatRemoteDataSourceImpl : ChatRemoteDataSource {
 }
