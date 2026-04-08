@@ -1,5 +1,6 @@
 package com.vimosanan.blink.chat.data.mapper
 
+import com.vimosanan.blink.chat.core.util.toInstant
 import com.vimosanan.blink.chat.data.local.entity.ConversationEntity
 import com.vimosanan.blink.chat.data.local.entity.ConversationWithMessages
 import com.vimosanan.blink.chat.data.local.entity.MessageEntity
@@ -13,7 +14,9 @@ fun ConversationWithMessages.toConversation(): Conversation {
         id = conversation.id,
         name = conversation.name,
         updatedAt = conversation.updatedAt,
-        messages = messages.map { it.toDomain() }
+        messages = messages
+            .sortedBy { it.updatedAt }
+            .map { it.toDomain() }
     )
 }
 
@@ -21,7 +24,7 @@ fun ConversationDto.toEntity(): ConversationEntity {
     return ConversationEntity(
         id = id,
         name = name,
-        updatedAt = updatedAt
+        updatedAt = updatedAt.toInstant()
     )
 }
 
@@ -39,7 +42,7 @@ fun MessageDto.toEntity(conversationId: String): MessageEntity {
         id = id,
         conversationId = conversationId,
         text = text,
-        updatedAt = updatedAt
+        updatedAt = updatedAt?.toInstant()
     )
 }
 

@@ -12,6 +12,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.vimosanan.blink.chat.core.util.toFormattedDate
 import com.vimosanan.blink.chat.domain.model.Message
 import com.vimosanan.blink.chat.presentation.chat.preview.ChatPreviewData
 import com.vimosanan.blink.chat.presentation.common.CircleAvatar
@@ -35,7 +36,7 @@ fun MessageRow(
                 text = message.text ?: "",
             )
             Text(
-                text = message.updatedAt ?: "",
+                text = message.updatedAt?.toFormattedDate() ?: "",
                 fontSize = 12.sp,
                 color = Color.Black.copy(alpha = 0.5f),
             )

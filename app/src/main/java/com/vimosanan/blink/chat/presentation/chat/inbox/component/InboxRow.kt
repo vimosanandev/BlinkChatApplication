@@ -12,9 +12,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.vimosanan.blink.chat.core.util.toFormattedDate
 import com.vimosanan.blink.chat.domain.model.Conversation
 import com.vimosanan.blink.chat.presentation.common.CircleAvatar
 import com.vimosanan.blink.chat.presentation.ui.theme.BlinkChatApplicationTheme
+import java.time.Instant
 
 @Composable
 fun ConversationRow(
@@ -35,7 +37,7 @@ fun ConversationRow(
                 text = conversation.name ?: "",
             )
             Text(
-                text = conversation.updatedAt ?: "",
+                text = conversation.updatedAt?.toFormattedDate() ?: "",
                 fontSize = 12.sp,
                 color = Color.Black.copy(alpha = 0.5f),
             )
@@ -52,7 +54,7 @@ fun ConversationRowPreview() {
                 id = "1",
                 name = "Conversation 1",
                 messages = emptyList(),
-                updatedAt = "2024-06-01T12:00:00Z"
+                updatedAt = Instant.now()
             )
         )
     }

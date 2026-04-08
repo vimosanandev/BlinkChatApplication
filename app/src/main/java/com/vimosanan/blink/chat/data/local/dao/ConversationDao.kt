@@ -15,7 +15,7 @@ interface ConversationDao {
     fun observeConversationsWithMessages(): Flow<List<ConversationWithMessages>>
 
     @Transaction
-    @Query("SELECT * FROM conversations WHERE id =:conversationId ORDER BY updated_at DESC")
+    @Query("SELECT * FROM conversations WHERE id =:conversationId")
     fun observeConversationWithMessages(conversationId: String): Flow<ConversationWithMessages?>
 
     @Query("SELECT * FROM conversations ORDER BY updated_at DESC")
