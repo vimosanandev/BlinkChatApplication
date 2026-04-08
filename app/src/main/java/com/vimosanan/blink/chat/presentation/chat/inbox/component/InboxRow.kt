@@ -1,6 +1,8 @@
 package com.vimosanan.blink.chat.presentation.chat.inbox.component
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
@@ -11,6 +13,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.vimosanan.blink.chat.domain.model.Conversation
+import com.vimosanan.blink.chat.presentation.common.CircleAvatar
 import com.vimosanan.blink.chat.presentation.ui.theme.BlinkChatApplicationTheme
 
 @Composable
@@ -18,19 +21,25 @@ fun ConversationRow(
     conversation: Conversation,
     modifier: Modifier = Modifier
 ) {
-    Column(
+    Row(
         modifier = modifier
             .fillMaxWidth()
             .padding(8.dp)
     ) {
-        Text(
-            text = conversation.name ?: "",
+        CircleAvatar(
+            name = conversation.name ?: "",
         )
-        Text(
-            text = conversation.updatedAt ?: "",
-            fontSize = 12.sp,
-            color = Color.Black.copy(alpha = 0.5f),
-        )
+        Spacer(modifier = Modifier.padding(horizontal = 8.dp))
+        Column {
+            Text(
+                text = conversation.name ?: "",
+            )
+            Text(
+                text = conversation.updatedAt ?: "",
+                fontSize = 12.sp,
+                color = Color.Black.copy(alpha = 0.5f),
+            )
+        }
     }
 }
 
