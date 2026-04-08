@@ -1,6 +1,7 @@
 package com.vimosanan.blink.chat.presentation.chat.detail.screen
 
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -49,8 +50,9 @@ fun MessageContent(
         },
         bottomBar = {
             MessageBottomTextField(
-                onMessageSent
-            )
+                modifier = Modifier.imePadding(),
+                onMessageSent,
+                )
         },
         modifier = Modifier.fillMaxSize()
     ) { innerPadding ->
