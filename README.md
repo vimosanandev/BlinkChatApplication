@@ -58,10 +58,9 @@ This project follows Clean Architecture principles:
 - **Presentation layer** — ViewModels, UI State, Composables 
 
 ## Screenshots
-| Inbox | Messages |
-|---|---|
-| ![Inbox](screenshots/image1.png) | ![Messages](screenshots/image2.png) |
-| ![Keyboard](screenshots/image3.png) | ![Empty](screenshots/image4.png) |
+| Inbox | Messages | Keyboard | Empty |
+|---|---|---|---|
+| ![Inbox](screenshots/image1.png) | ![Messages](screenshots/image2.png) | ![Keyboard](screenshots/image3.png) | ![Empty](screenshots/image4.png) |
 
 ## License
 This project is developed as a POC for showcasing the implementation of a chat application
