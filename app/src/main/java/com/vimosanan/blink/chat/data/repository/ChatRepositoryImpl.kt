@@ -1,6 +1,7 @@
 package com.vimosanan.blink.chat.data.repository
 
 import com.vimosanan.blink.chat.data.local.datasource.ChatLocalDataSource
+import com.vimosanan.blink.chat.data.local.entity.MessageEntity
 import com.vimosanan.blink.chat.data.mapper.toConversation
 import com.vimosanan.blink.chat.data.mapper.toEntity
 import com.vimosanan.blink.chat.data.remote.datasource.ChatRemoteDataSource
@@ -9,7 +10,10 @@ import com.vimosanan.blink.chat.domain.model.Conversation
 import com.vimosanan.blink.chat.domain.repository.ChatRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
+import java.time.Instant
 import javax.inject.Inject
+import kotlin.uuid.ExperimentalUuidApi
+import kotlin.uuid.Uuid
 
 class ChatRepositoryImpl @Inject constructor(
     private val chatLocalDataSource: ChatLocalDataSource,
@@ -41,6 +45,24 @@ class ChatRepositoryImpl @Inject constructor(
                     dto.messages.map { it.toEntity(dto.id) }
                 }
             )
+            OperationResult.Success
+        } catch (e: Exception) {
+            OperationResult.Error(e.toString())
+        }
+    }
+
+    @OptIn(ExperimentalUuidApi::class)
+    override suspend fun sendMessage(conversationId: String, message: String): OperationResult {
+        return try {
+            chatLocalDataSource.upsertMessage(
+                MessageEntity(
+                    id = Uuid.random().toString(),
+                    conversationId = conversationId,
+                    text = message,
+                    updatedAt = Instant.now(),
+                )
+            )
+            // Update to server
             OperationResult.Success
         } catch (e: Exception) {
             OperationResult.Error(e.toString())

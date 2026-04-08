@@ -12,5 +12,7 @@ interface ChatLocalDataSource {
 
     suspend fun upsertConversations(conversations: List<ConversationEntity>)
 
+    suspend fun upsertMessage(message: MessageEntity)
+
     suspend fun upsertMessages(messages: List<MessageEntity>)
 }

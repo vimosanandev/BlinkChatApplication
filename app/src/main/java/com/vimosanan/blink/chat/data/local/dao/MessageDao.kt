@@ -13,4 +13,7 @@ interface MessageDao {
 
     @Upsert
     suspend fun upsertMessages(messages: List<MessageEntity>)
+
+    @Upsert
+    suspend fun upsertMessage(messages: MessageEntity)
 }

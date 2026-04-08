@@ -8,4 +8,5 @@ interface ChatRepository {
     fun observeConversations(): Flow<List<Conversation>>
     fun observeConversationById(conversationId: String): Flow<Conversation?>
     suspend fun syncConversations(): OperationResult
+    suspend fun sendMessage(conversationId: String, message: String): OperationResult
 }

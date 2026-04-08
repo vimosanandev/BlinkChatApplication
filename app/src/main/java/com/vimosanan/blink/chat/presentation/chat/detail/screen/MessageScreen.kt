@@ -12,6 +12,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.vimosanan.blink.chat.domain.model.Conversation
+import com.vimosanan.blink.chat.presentation.chat.detail.component.MessageBottomTextField
 import com.vimosanan.blink.chat.presentation.chat.detail.component.MessageRow
 import com.vimosanan.blink.chat.presentation.chat.detail.viewmodel.MessageViewModel
 import com.vimosanan.blink.chat.presentation.chat.preview.ChatPreviewData
@@ -25,12 +26,17 @@ fun MessageScreen(
 ) {
     val conversation by viewModel.conversation.collectAsStateWithLifecycle()
 
-    MessageContent(conversation, onBackPressed)
+    MessageContent(
+        conversation,
+        onMessageSent = viewModel::onMessageSent,
+        onBackPressed = onBackPressed,
+    )
 }
 
 @Composable
 fun MessageContent(
     conversation: Conversation?,
+    onMessageSent: (String) -> Unit = {},
     onBackPressed: () -> Unit = {},
 ) {
     Scaffold(
@@ -41,12 +47,17 @@ fun MessageContent(
                 onNavigateBack = onBackPressed,
             )
         },
+        bottomBar = {
+            MessageBottomTextField(
+                onMessageSent
+            )
+        },
         modifier = Modifier.fillMaxSize()
     ) { innerPadding ->
         LazyColumn(
             modifier = Modifier
-                .fillMaxSize()
-                .padding(innerPadding),
+                .fillMaxSize(),
+            contentPadding = innerPadding
         ) {
             items(
                 items = conversation?.messages ?: emptyList(),

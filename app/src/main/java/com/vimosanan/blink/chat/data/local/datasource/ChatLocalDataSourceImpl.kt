@@ -22,6 +22,9 @@ class ChatLocalDataSourceImpl @Inject constructor(
     override suspend fun upsertConversations(conversations: List<ConversationEntity>) =
         conversationDao.upsertConversations(conversations)
 
+    override suspend fun upsertMessage(message: MessageEntity) =
+        messageDao.upsertMessage(message)
+
     override suspend fun upsertMessages(messages: List<MessageEntity>) =
         messageDao.upsertMessages(messages)
 }
