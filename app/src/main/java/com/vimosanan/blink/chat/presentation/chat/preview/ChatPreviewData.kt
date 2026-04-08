@@ -3,7 +3,12 @@ package com.vimosanan.blink.chat.presentation.chat.preview
 import com.vimosanan.blink.chat.domain.model.Conversation
 import com.vimosanan.blink.chat.domain.model.Message
 
-object ConversationPreviewData {
+object ChatPreviewData {
+    val dummyMessage = Message(
+        id = "1",
+        text = "Hello, this is a message.",
+        updatedAt = "2024-06-01T12:00:00Z"
+    )
     val dummyConversation = Conversation(
         id = "1",
         name = "John Doe",

@@ -3,7 +3,7 @@ package com.vimosanan.blink.chat.presentation.navigation
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
-import com.vimosanan.blink.chat.presentation.chat.navigation.chatNavGraph
+import com.vimosanan.blink.chat.presentation.chat.inbox.navigation.chatNavGraph
 
 @Composable
 fun AppNavHost(
