@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.Send
-import androidx.compose.material.icons.filled.Send
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedTextField
@@ -36,7 +35,7 @@ fun MessageBottomTextField(
         modifier = modifier
             .fillMaxWidth()
             .background(color = Color.White)
-            .padding(8.dp),
+            .padding(16.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
         OutlinedTextField(
@@ -45,6 +44,7 @@ fun MessageBottomTextField(
             modifier = Modifier
                 .fillMaxWidth()
                 .weight(1f),
+            maxLines = 1,
             placeholder = { Text(text = "Type a message") }
         )
         Spacer(modifier = Modifier.width(8.dp))
