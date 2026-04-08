@@ -14,6 +14,9 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.vimosanan.blink.chat.domain.model.Conversation
+import com.vimosanan.blink.chat.domain.model.Message
+import com.vimosanan.blink.chat.presentation.chat.component.ConversationRow
+import com.vimosanan.blink.chat.presentation.chat.preview.ConversationPreviewData
 import com.vimosanan.blink.chat.presentation.chat.viewmodel.ChatViewModel
 
 @Composable
@@ -43,18 +46,10 @@ fun ChatContent(
     }
 }
 
-@Composable
-fun ConversationRow(
-    conversation: Conversation
-) {
-    Text(
-        text = conversation.id,
-        modifier = Modifier.padding(16.dp)
-    )
-}
-
 @Preview(showBackground = true)
 @Composable
 fun ChatScreenPreview() {
-    ChatScreen()
+    ChatContent(
+        conversations = ConversationPreviewData.dummyConversations
+    )
 }

@@ -3,8 +3,7 @@ package com.vimosanan.blink.chat.presentation.navigation
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
-import com.vimosanan.blink.chat.presentation.chat.screen.ChatScreen
+import com.vimosanan.blink.chat.presentation.chat.navigation.chatNavGraph
 
 @Composable
 fun AppNavHost(
@@ -18,8 +17,6 @@ fun AppNavHost(
         popEnterTransition = NavigationAnimation.popEnterSlideFromLeft,
         popExitTransition = NavigationAnimation.popExitSlideToRight,
     ) {
-        composable(Screen.ChatScreen.route) {
-            ChatScreen()
-        }
+        chatNavGraph(navController = navController)
     }
 }
